@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YOZA</title>
+<title>YOZA Food App</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 *{
     margin:0;
@@ -18,250 +18,210 @@
 }
 
 body{
-    background:#ddb07a;
     min-height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
+    background:#ddb07a;
     padding:20px;
 }
 
 .phone{
-    width:100%;
-    max-width:420px;
-    background:#f7f1e7;
+    width:360px;
+    background:#f7f2ea;
     border-radius:40px;
     overflow:hidden;
-    box-shadow:0 20px 50px rgba(0,0,0,.15);
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
 }
 
-/* HERO */
+/* TOP */
 
 .hero{
-    background:#7f6256;
-    padding:20px;
-    color:white;
-}
-
-.top-bar{
+    height:270px;
+    background:linear-gradient(180deg,#7f6257,#5e473f);
+    position:relative;
     display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.top-bar h1{
-    font-size:24px;
-    letter-spacing:2px;
-}
-
-.hero-content{
-    margin-top:20px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
-}
-
-.hero-text h2{
-    font-size:28px;
-    line-height:1.1;
-}
-
-.hero-text p{
-    opacity:.8;
-    margin-top:10px;
+    justify-content:center;
+    align-items:flex-end;
+    padding-bottom:20px;
 }
 
 .hero img{
-    width:150px;
-    height:150px;
-    object-fit:cover;
-    border-radius:20px;
+    width:90%;
+    object-fit:contain;
 }
 
-/* SECTION */
+/* CONTENT */
 
-.section{
+.content{
     padding:20px;
 }
 
-.section-title{
-    margin-bottom:15px;
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
 }
 
-.section-title h3{
-    color:#333;
+.logo{
+    font-size:22px;
+    font-weight:700;
+    color:#3a302c;
 }
 
-.food-grid{
+.cart{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    background:#ff9e47;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+}
+
+.grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+    grid-template-columns:repeat(3,1fr);
     gap:15px;
 }
 
 .card{
     background:white;
     border-radius:18px;
-    padding:12px;
+    padding:10px;
     text-align:center;
-    box-shadow:0 5px 15px rgba(0,0,0,.05);
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-5px);
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
 }
 
 .card img{
     width:100%;
-    height:100px;
-    object-fit:cover;
-    border-radius:12px;
+    height:80px;
+    object-fit:contain;
 }
 
 .card h4{
-    margin-top:10px;
-    font-size:14px;
+    font-size:13px;
+    margin-top:8px;
     color:#333;
 }
 
-.card span{
-    color:#f59e0b;
+.price{
+    color:#ff9e47;
     font-weight:600;
+    margin-top:5px;
 }
 
 /* BOTTOM NAV */
 
 .bottom-nav{
     background:white;
+    padding:15px 20px 25px;
     display:flex;
-    justify-content:space-around;
-    padding:18px;
-    border-top:1px solid #eee;
+    justify-content:space-between;
+    align-items:center;
 }
 
-.bottom-nav i{
+.nav-btn{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:#f3efe8;
+    display:flex;
+    justify-content:center;
+    align-items:center;
     font-size:20px;
-    color:#999;
-    cursor:pointer;
+    color:#444;
 }
 
-.bottom-nav .active{
-    color:#f59e0b;
+.search-btn{
+    width:140px;
+    height:55px;
+    border:none;
+    border-radius:30px;
+    background:#ffad4d;
+    color:white;
+    font-size:18px;
+    font-weight:600;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
 }
 
-/* TABLET */
+@media(max-width:420px){
 
-@media (min-width:768px){
-
-    .phone{
-        max-width:900px;
-    }
-
-    .food-grid{
-        grid-template-columns:repeat(3,1fr);
-    }
-
-    .hero img{
-        width:220px;
-        height:220px;
-    }
-
-    .hero-text h2{
-        font-size:42px;
-    }
+.phone{
+    width:100%;
+    max-width:360px;
 }
 
-/* LARGE DESKTOP */
-
-@media (min-width:1200px){
-
-    .phone{
-        max-width:1200px;
-    }
-
-    .food-grid{
-        grid-template-columns:repeat(4,1fr);
-    }
 }
+
 </style>
-
 </head>
 <body>
 
 <div class="phone">
 
-    <!-- HERO -->
     <div class="hero">
-        <div class="top-bar">
-            <h1>YOZA</h1>
-            <i class="fas fa-bars"></i>
-        </div>
-
-        <div class="hero-content">
-            <div class="hero-text">
-                <h2>Delicious Food</h2>
-                <p>Fresh, Fast & Tasty</p>
-            </div>
-
-            <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=600"
-                 alt="Burger">
-        </div>
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=800" alt="">
     </div>
 
-    <!-- POPULAR ITEMS -->
-    <div class="section">
-        <div class="section-title">
-            <h3>Popular Items</h3>
+    <div class="content">
+
+        <div class="header">
+            <div class="logo">YOZA</div>
+
+            <div class="cart">
+                <i class="fa-solid fa-bag-shopping"></i>
+            </div>
         </div>
 
-        <div class="food-grid">
+        <!-- ONLY 3 ITEMS -->
+
+        <div class="grid">
 
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=500" alt="Burger">
+                <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
                 <h4>Burger</h4>
-                <span>$8.99</span>
+                <div class="price">$8.99</div>
             </div>
 
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?w=500" alt="Pizza">
-                <h4>Pizza</h4>
-                <span>$10.99</span>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1625944230945-1b7dd3b949ab?w=500" alt="Fries">
+                <img src="https://cdn-icons-png.flaticon.com/512/5787/5787016.png">
                 <h4>Fries</h4>
-                <span>$4.99</span>
+                <div class="price">$4.99</div>
             </div>
 
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?w=500" alt="Cheese Burger">
-                <h4>Cheese Burger</h4>
-                <span>$9.99</span>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=500" alt="Special Pizza">
-                <h4>Special Pizza</h4>
-                <span>$12.99</span>
-            </div>
-
-            <div class="card">
-                <img src="https://images.unsplash.com/photo-1574226516831-e1dff420e37f?w=500" alt="Banana">
-                <h4>Banana</h4>
-                <span>$2.99</span>
+                <img src="https://cdn-icons-png.flaticon.com/512/3595/3595455.png">
+                <h4>Wrap</h4>
+                <div class="price">$7.49</div>
             </div>
 
         </div>
+
     </div>
 
-    <!-- FOOTER -->
+    <!-- CUSTOM NAV -->
+
     <div class="bottom-nav">
-        <i class="fas fa-home active"></i>
-        <i class="fas fa-search"></i>
-        <i class="fas fa-heart"></i>
-        <i class="fas fa-user"></i>
+
+        <div class="nav-btn">
+            <i class="fa-solid fa-house"></i>
+        </div>
+
+        <button class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            Search
+        </button>
+
+        <div class="nav-btn">
+            <i class="fa-solid fa-user"></i>
+        </div>
+
     </div>
 
 </div>
