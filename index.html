@@ -51,11 +51,13 @@ body{
     display:flex;
     justify-content:space-between;
     align-items:center;
+    gap:20px;
 }
 
 .hero-text h1{
     font-size:60px;
     font-weight:700;
+    margin-bottom:8px;
 }
 
 .hero-text p{
@@ -95,9 +97,10 @@ body{
     padding:12px 25px;
     border-radius:50px;
     font-size:18px;
+    font-weight:600;
 }
 
-/* GRID */
+/* FOOD GRID */
 
 .food-grid{
     display:grid;
@@ -111,6 +114,11 @@ body{
     padding:20px;
     text-align:center;
     box-shadow:0 10px 20px rgba(0,0,0,.05);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
 }
 
 .card img{
@@ -120,32 +128,34 @@ body{
 }
 
 .card h4{
-    margin-top:10px;
     color:#3f2c1d;
+    font-size:22px;
+    margin-top:10px;
+    margin-bottom:8px;
 }
 
 .price{
     color:#ff9b2f;
+    font-size:22px;
     font-weight:700;
-    margin-top:5px;
 }
 
-/* FIXED NAV */
+/* FIXED NAVIGATION */
 
 .bottom-nav{
     position:fixed;
-    left:0;
     bottom:0;
+    left:0;
     width:100%;
     height:80px;
 
     background:#efe6d8;
 
     display:flex;
-    align-items:center;
     justify-content:space-evenly;
+    align-items:center;
 
-    padding:0 15px;
+    padding:0 20px;
 
     border-radius:25px 25px 0 0;
     box-shadow:0 -5px 20px rgba(0,0,0,.08);
@@ -154,49 +164,66 @@ body{
 }
 
 .nav-btn{
-    width:55px;
-    height:55px;
+    width:60px;
+    height:60px;
     border-radius:50%;
     background:white;
 
     display:flex;
-    align-items:center;
     justify-content:center;
+    align-items:center;
 
-    font-size:20px;
     color:#6f5748;
+    font-size:22px;
     cursor:pointer;
-}
 
-/* SEARCH */
-
-.search-container{
-    flex:1;
-    display:flex;
-    gap:8px;
-    max-width:320px;
-    margin:0 10px;
-}
-
-#searchInput{
-    flex:1;
-    border:none;
-    outline:none;
-    height:55px;
-    border-radius:50px;
-    padding:0 18px;
-    font-size:16px;
+    flex-shrink:0;
 }
 
 .search-btn{
-    width:55px;
+    flex:1;
+    max-width:250px;
     height:55px;
-    border:none;
-    border-radius:50%;
+
     background:#f3a63f;
     color:white;
+
+    border-radius:50px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+
+    font-size:22px;
     cursor:pointer;
+}
+
+/* TABLET */
+
+@media(max-width:900px){
+
+.hero-text h1{
+    font-size:48px;
+}
+
+.hero img{
+    width:180px;
+}
+
+.section-head h2{
+    font-size:34px;
+}
+
+.card img{
+    width:90px;
+    height:90px;
+}
+
+.card h4{
     font-size:18px;
+}
+
 }
 
 /* MOBILE */
@@ -207,16 +234,20 @@ body{
     padding:20px;
 }
 
+.hero-content{
+    gap:10px;
+}
+
 .hero-text h1{
     font-size:32px;
 }
 
 .hero-text p{
-    font-size:14px;
+    font-size:15px;
 }
 
 .hero img{
-    width:120px;
+    width:130px;
 }
 
 .section-head h2{
@@ -224,16 +255,18 @@ body{
 }
 
 .badge{
-    font-size:13px;
-    padding:8px 14px;
+    padding:8px 16px;
+    font-size:14px;
 }
 
 .food-grid{
+    grid-template-columns:repeat(3,1fr);
     gap:10px;
 }
 
 .card{
     padding:10px;
+    border-radius:18px;
 }
 
 .card img{
@@ -242,30 +275,29 @@ body{
 }
 
 .card h4{
-    font-size:12px;
+    font-size:13px;
 }
 
 .price{
-    font-size:12px;
+    font-size:13px;
 }
 
 .bottom-nav{
     height:75px;
-}
-
-#searchInput{
-    height:50px;
-    font-size:14px;
-}
-
-.search-btn{
-    width:50px;
-    height:50px;
+    padding:0 15px;
 }
 
 .nav-btn{
     width:50px;
     height:50px;
+    font-size:18px;
+}
+
+.search-btn{
+    max-width:none;
+    width:55%;
+    height:50px;
+    font-size:18px;
 }
 
 }
@@ -298,63 +330,45 @@ body{
 
     <div class="section-head">
         <h2>Popular</h2>
-        <div class="badge">9 Items</div>
+        <div class="badge">7 Items</div>
     </div>
 
     <div class="food-grid">
 
-        <div class="card" data-name="Burger">
+        <div class="card">
             <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
             <h4>Burger</h4>
             <div class="price">$8.99</div>
         </div>
 
-        <div class="card" data-name="Wrap">
-            <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
-            <h4>Wrap</h4>
-            <div class="price">$7.99</div>
-        </div>
-
-        <div class="card" data-name="Fries">
+        <div class="card">
             <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
             <h4>Fries</h4>
             <div class="price">$3.99</div>
         </div>
 
-        <div class="card" data-name="Pizza">
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
+            <h4>Wrap</h4>
+            <div class="price">$7.99</div>
+        </div>
+
+        <div class="card">
             <img src="https://cdn-icons-png.flaticon.com/512/5787/5787100.png">
             <h4>Pizza</h4>
             <div class="price">$10.99</div>
         </div>
 
-        <div class="card" data-name="Cheese Burger">
+        <div class="card">
             <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
             <h4>Cheese Burger</h4>
             <div class="price">$9.99</div>
         </div>
 
-        <div class="card" data-name="Banana">
+        <div class="card">
             <img src="https://cdn-icons-png.flaticon.com/512/590/590685.png">
             <h4>Banana</h4>
             <div class="price">$2.99</div>
-        </div>
-
-        <div class="card" data-name="Hotdog">
-            <img src="https://cdn-icons-png.flaticon.com/512/5787/5787069.png">
-            <h4>Hotdog</h4>
-            <div class="price">$5.99</div>
-        </div>
-
-        <div class="card" data-name="Donut">
-            <img src="https://cdn-icons-png.flaticon.com/512/1046/1046786.png">
-            <h4>Donut</h4>
-            <div class="price">$4.99</div>
-        </div>
-
-        <div class="card" data-name="Taco">
-            <img src="https://cdn-icons-png.flaticon.com/512/5787/5787076.png">
-            <h4>Taco</h4>
-            <div class="price">$6.99</div>
         </div>
 
     </div>
@@ -367,20 +381,9 @@ body{
         <i class="fas fa-house"></i>
     </div>
 
-    <div class="search-container">
-
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="Search food..."
-        >
-
-        <button
-            class="search-btn"
-            onclick="searchFood()">
-            <i class="fas fa-search"></i>
-        </button>
-
+    <div class="search-btn">
+        <i class="fas fa-search"></i>
+        Search
     </div>
 
     <div class="nav-btn">
@@ -388,45 +391,6 @@ body{
     </div>
 
 </div>
-
-<script>
-
-function searchFood(){
-
-    const searchText =
-    document.getElementById("searchInput")
-    .value
-    .toLowerCase();
-
-    const cards =
-    document.querySelectorAll(".card");
-
-    cards.forEach(card => {
-
-        const foodName =
-        card.dataset.name.toLowerCase();
-
-        if(foodName.includes(searchText)){
-            card.style.display = "block";
-        }else{
-            card.style.display = "none";
-        }
-
-    });
-
-}
-
-document
-.getElementById("searchInput")
-.addEventListener("keyup", function(event){
-
-    if(event.key === "Enter"){
-        searchFood();
-    }
-
-});
-
-</script>
 
 </body>
 </html>
