@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YOZA Food App</title>
+<title>YOZA</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -18,101 +21,231 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 }
 
 body{
-    background:#d6a97b;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:20px;
-}
-
-.phone{
-    width:390px;
-    max-width:100%;
     background:#f8f2e8;
-    border-radius:35px;
-    overflow:hidden;
-    box-shadow:0 20px 40px rgba(0,0,0,.15);
+    min-height:100vh;
 }
 
-/* HERO */
+/* HERO SECTION */
 
 .hero{
     background:#9d755f;
-    padding:20px;
     color:white;
-    position:relative;
+    padding:25px;
+    border-radius:0 0 35px 35px;
 }
 
 .top-icons{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:15px;
+    margin-bottom:30px;
 }
 
 .top-icons i{
-    font-size:18px;
+    font-size:22px;
+    cursor:pointer;
 }
 
 .hero-content{
     display:flex;
-    align-items:center;
     justify-content:space-between;
-    gap:15px;
+    align-items:center;
+    gap:20px;
 }
 
 .hero-text h1{
-    font-size:32px;
-    margin-bottom:5px;
+    font-size:60px;
+    font-weight:700;
+    margin-bottom:8px;
 }
 
 .hero-text p{
-    opacity:.8;
-    font-size:14px;
+    font-size:20px;
+    opacity:.9;
 }
 
 .hero img{
-    width:160px;
-    filter:drop-shadow(0 10px 15px rgba(0,0,0,.2));
+    width:220px;
+    max-width:45%;
 }
 
 /* CONTENT */
 
 .content{
-    padding:20px;
+    max-width:1200px;
+    margin:auto;
+    padding:25px;
 }
 
 .section-head{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:20px;
+    margin-bottom:25px;
 }
 
 .section-head h2{
     color:#3d2b1f;
+    font-size:42px;
+}
+
+.badge{
+    background:#f3a63f;
+    color:white;
+    padding:12px 25px;
+    border-radius:50px;
+    font-size:18px;
+    font-weight:600;
+}
+
+/* FOOD GRID */
+
+.food-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.card{
+    background:white;
+    border-radius:25px;
+    padding:20px;
+    text-align:center;
+    box-shadow:0 10px 20px rgba(0,0,0,.05);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card img{
+    width:120px;
+    height:120px;
+    object-fit:contain;
+}
+
+.card h4{
+    color:#3f2c1d;
+    font-size:22px;
+    margin-top:10px;
+    margin-bottom:8px;
+}
+
+.price{
+    color:#ff9b2f;
+    font-size:22px;
+    font-weight:700;
+}
+
+/* BOTTOM NAV */
+
+.bottom-nav{
+    margin-top:35px;
+    background:#efe6d8;
+    border-radius:30px;
+    padding:18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:40px;
+}
+
+.nav-btn{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:22px;
+    color:#6f5748;
+    cursor:pointer;
+}
+
+.search-btn{
+    width:220px;
+    height:60px;
+    border-radius:50px;
+    background:#f3a63f;
+    color:white;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    font-size:24px;
+    cursor:pointer;
+}
+
+/* TABLET */
+
+@media(max-width:900px){
+
+.hero-text h1{
+    font-size:48px;
+}
+
+.hero img{
+    width:180px;
+}
+
+.section-head h2{
+    font-size:34px;
+}
+
+.card img{
+    width:90px;
+    height:90px;
+}
+
+.card h4{
+    font-size:18px;
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:600px){
+
+.hero{
+    padding:20px;
+}
+
+.hero-content{
+    gap:10px;
+}
+
+.hero-text h1{
+    font-size:32px;
+}
+
+.hero-text p{
+    font-size:15px;
+}
+
+.hero img{
+    width:130px;
+}
+
+.section-head h2{
     font-size:22px;
 }
 
 .badge{
-    background:#ffb44c;
-    color:white;
-    padding:8px 14px;
-    border-radius:30px;
     font-size:14px;
+    padding:8px 16px;
 }
 
-/* GRID */
-
 .food-grid{
-    display:grid;
-    grid-template-columns:repeat(3,minmax(0,1fr));
+    grid-template-columns:repeat(3,1fr);
     gap:10px;
 }
 
 .card{
-    padding:8px;
+    padding:10px;
+    border-radius:18px;
 }
 
 .card img{
@@ -121,85 +254,27 @@ body{
 }
 
 .card h4{
-    font-size:12px;
+    font-size:13px;
 }
 
 .price{
-    font-size:12px;
+    font-size:13px;
 }
-
-.card{
-    background:white;
-    border-radius:20px;
-    padding:12px;
-    text-align:center;
-    box-shadow:0 8px 15px rgba(0,0,0,.05);
-    transition:.3s;
-}
-
-.card:hover{
-    transform:translateY(-4px);
-}
-
-.card h4{
-    font-size:14px;
-    color:#3f2c1d;
-    margin-bottom:6px;
-}
-
-.price{
-    color:#ff9b2f;
-    font-weight:700;
-}
-
-/* BOTTOM NAV */
 
 .bottom-nav{
-    margin-top:25px;
-    background:#efe6d8;
-    border-radius:25px;
-    padding:15px;
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
+    gap:15px;
 }
 
 .nav-btn{
-    width:48px;
-    height:48px;
-    border-radius:50%;
-    background:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#6f5748;
+    width:50px;
+    height:50px;
+    font-size:18px;
 }
 
 .search-btn{
-    width:120px;
-    height:48px;
-    border-radius:30px;
-    background:#f3a63f;
-    color:white;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:10px;
-}
-
-@media(max-width:420px){
-
-.hero img{
-    width:130px;
-}
-
-.card img{
-    width:70px;
-    height:70px;
-}
-
-.food-grid{
-    gap:10px;
+    width:150px;
+    height:50px;
+    font-size:18px;
 }
 
 }
@@ -208,93 +283,91 @@ body{
 </head>
 <body>
 
-<div class="phone">
+<section class="hero">
 
-    <div class="hero">
+    <div class="top-icons">
+        <i class="fas fa-bars"></i>
+        <i class="fas fa-bell"></i>
+    </div>
 
-        <div class="top-icons">
-            <i class="fas fa-bars"></i>
-            <i class="fas fa-bell"></i>
+    <div class="hero-content">
+
+        <div class="hero-text">
+            <h1>YOZA</h1>
+            <p>Best Burgers & Fries</p>
         </div>
 
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>YOZA</h1>
-                <p>Best Burgers & Fries</p>
-            </div>
+        <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Burger">
 
-            <img src="https://cdn-icons-png.flaticon.com/512/5787/5787016.png">
+    </div>
+
+</section>
+
+<section class="content">
+
+    <div class="section-head">
+        <h2>Popular</h2>
+        <div class="badge">7 Items</div>
+    </div>
+
+    <div class="food-grid">
+
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
+            <h4>Burger</h4>
+            <div class="price">$8.99</div>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
+            <h4>Fries</h4>
+            <div class="price">$3.99</div>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
+            <h4>Wrap</h4>
+            <div class="price">$7.99</div>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/5787/5787100.png">
+            <h4>Pizza</h4>
+            <div class="price">$10.99</div>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
+            <h4>Cheese Burger</h4>
+            <div class="price">$9.99</div>
+        </div>
+
+        <div class="card">
+            <img src="https://cdn-icons-png.flaticon.com/512/590/590685.png">
+            <h4>Banana</h4>
+            <div class="price">$2.99</div>
         </div>
 
     </div>
 
-    <div class="content">
+    <div class="bottom-nav">
 
-        <div class="section-head">
-            <h2>Popular</h2>
-            <div class="badge">7 Items</div>
+        <div class="nav-btn">
+            <i class="fas fa-house"></i>
         </div>
 
-        <div class="food-grid">
-
-            <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
-                <h4>Burger</h4>
-                <div class="price">$8.99</div>
-            </div>
-
-            <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
-                <h4>Fries</h4>
-                <div class="price">$3.99</div>
-            </div>
-
-            <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
-                <h4>Wrap</h4>
-                <div class="price">$7.99</div>
-            </div>
-
-            <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/5787/5787100.png">
-                <h4>Pizza</h4>
-                <div class="price">$10.99</div>
-            </div>
-
-            <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
-                <h4>Cheese Burger</h4>
-                <div class="price">$9.99</div>
-            </div>
-
-            <div class="card">
-                <img src="https://cdn-icons-png.flaticon.com/512/590/590685.png">
-                <h4>Banana</h4>
-                <div class="price">$2.99</div>
-            </div>
-
+        <div class="search-btn">
+            <i class="fas fa-search"></i>
+            Search
         </div>
 
-        <div class="bottom-nav">
-
-            <div class="nav-btn">
-                <i class="fas fa-house"></i>
-            </div>
-
-            <div class="search-btn">
-                <i class="fas fa-search"></i>
-                Search
-            </div>
-
-            <div class="nav-btn">
-                <i class="fas fa-user"></i>
-            </div>
-
+        <div class="nav-btn">
+            <i class="fas fa-user"></i>
         </div>
 
     </div>
 
-</div>
+</section>
 
 </body>
 </html>
