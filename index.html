@@ -3,8 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>YOZA</title>
+<title>YOZA Food App</title>
 
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
@@ -19,324 +18,273 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 }
 
 body{
-    background:#f7f2ea;
+    background:#d6a97b;
     min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+.phone{
+    width:390px;
+    max-width:100%;
+    background:#f8f2e8;
+    border-radius:35px;
+    overflow:hidden;
+    box-shadow:0 20px 40px rgba(0,0,0,.15);
 }
 
 /* HERO */
 
 .hero{
-    width:100%;
-    height:50vh;
-    min-height:300px;
-    background:#5e473f;
-    overflow:hidden;
+    background:#9d755f;
+    padding:20px;
+    color:white;
+    position:relative;
+}
+
+.top-icons{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:15px;
+}
+
+.top-icons i{
+    font-size:18px;
+}
+
+.hero-content{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+}
+
+.hero-text h1{
+    font-size:32px;
+    margin-bottom:5px;
+}
+
+.hero-text p{
+    opacity:.8;
+    font-size:14px;
 }
 
 .hero img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
+    width:160px;
+    filter:drop-shadow(0 10px 15px rgba(0,0,0,.2));
 }
 
 /* CONTENT */
 
 .content{
-    max-width:1400px;
-    margin:auto;
-    padding:40px;
-    padding-bottom:120px;
+    padding:20px;
 }
 
-.header{
+.section-head{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    margin-bottom:35px;
+    margin-bottom:20px;
 }
 
-.logo{
-    font-size:40px;
-    font-weight:700;
-    color:#2d2926;
-}
-
-.cart{
-    width:60px;
-    height:60px;
-    border-radius:50%;
-    background:#ffad4d;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+.section-head h2{
+    color:#3d2b1f;
     font-size:22px;
-    cursor:pointer;
 }
 
-/* PRODUCTS */
+.badge{
+    background:#ffb44c;
+    color:white;
+    padding:8px 14px;
+    border-radius:30px;
+    font-size:14px;
+}
 
-.grid{
+/* GRID */
+
+.food-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
-    gap:25px;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
 }
 
 .card{
     background:white;
-    border-radius:25px;
-    padding:20px;
+    border-radius:20px;
+    padding:12px;
     text-align:center;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    box-shadow:0 8px 15px rgba(0,0,0,.05);
     transition:.3s;
 }
 
 .card:hover{
-    transform:translateY(-5px);
+    transform:translateY(-4px);
 }
 
 .card img{
-    width:100%;
-    height:180px;
+    width:90px;
+    height:90px;
     object-fit:contain;
+    margin-bottom:10px;
 }
 
 .card h4{
-    margin-top:12px;
-    font-size:22px;
-    color:#333;
+    font-size:14px;
+    color:#3f2c1d;
+    margin-bottom:6px;
 }
 
 .price{
-    margin-top:10px;
-    font-size:24px;
+    color:#ff9b2f;
     font-weight:700;
-    color:#ffad4d;
 }
 
 /* BOTTOM NAV */
 
 .bottom-nav{
-    position:fixed;
-    bottom:0;
-    left:0;
-    width:100%;
-    background:white;
-    padding:15px 25px;
+    margin-top:25px;
+    background:#efe6d8;
+    border-radius:25px;
+    padding:15px;
     display:flex;
+    justify-content:space-around;
     align-items:center;
-    justify-content:center;
-    gap:20px;
-    box-shadow:0 -5px 20px rgba(0,0,0,.1);
-    z-index:1000;
 }
 
 .nav-btn{
-    width:60px;
-    height:60px;
+    width:48px;
+    height:48px;
     border-radius:50%;
-    background:#f2ede6;
+    background:white;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:22px;
-    color:#444;
-    cursor:pointer;
+    color:#6f5748;
 }
 
-.search-box{
-    flex:1;
-    max-width:600px;
-    height:60px;
-    background:#ffad4d;
-    border-radius:40px;
+.search-btn{
+    width:120px;
+    height:48px;
+    border-radius:30px;
+    background:#f3a63f;
+    color:white;
     display:flex;
+    justify-content:center;
     align-items:center;
     gap:10px;
-    padding:0 20px;
 }
 
-.search-box i{
-    color:white;
+@media(max-width:420px){
+
+.hero img{
+    width:130px;
 }
 
-.search-box input{
-    flex:1;
-    border:none;
-    outline:none;
-    background:transparent;
-    color:white;
-    font-size:18px;
+.card img{
+    width:70px;
+    height:70px;
 }
 
-.search-box input::placeholder{
-    color:rgba(255,255,255,.85);
+.food-grid{
+    gap:10px;
 }
 
-/* MOBILE */
-
-@media(max-width:768px){
-
-    .hero{
-        height:300px;
-    }
-
-    .content{
-        padding:20px;
-        padding-bottom:120px;
-    }
-
-    .logo{
-        font-size:30px;
-    }
-
-    .grid{
-        grid-template-columns:repeat(2,1fr);
-    }
-}
-
-@media(max-width:500px){
-
-    .grid{
-        grid-template-columns:1fr;
-    }
-
-    .bottom-nav{
-        gap:10px;
-        padding:10px;
-    }
-
-    .nav-btn{
-        width:55px;
-        height:55px;
-    }
-
-    .search-box{
-        height:55px;
-    }
 }
 
 </style>
 </head>
 <body>
 
-<!-- HERO IMAGE -->
+<div class="phone">
 
-<div class="hero">
-    <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?w=1600"
-    alt="Burger">
-</div>
+    <div class="hero">
 
-<!-- CONTENT -->
-
-<div class="content">
-
-    <div class="header">
-
-        <div class="logo">
-            YOZA
+        <div class="top-icons">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-bell"></i>
         </div>
 
-        <div class="cart">
-            <i class="fa-solid fa-bag-shopping"></i>
-        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>YOZA</h1>
+                <p>Best Burgers & Fries</p>
+            </div>
 
-    </div>
-
-    <div class="grid">
-
-        <div class="card" data-name="burger">
-            <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
-            <h4>Burger</h4>
-            <div class="price">$8.99</div>
-        </div>
-
-        <div class="card" data-name="fries">
             <img src="https://cdn-icons-png.flaticon.com/512/5787/5787016.png">
-            <h4>Fries</h4>
-            <div class="price">$4.99</div>
         </div>
 
-        <div class="card" data-name="wrap">
-            <img src="https://cdn-icons-png.flaticon.com/512/3595/3595455.png">
-            <h4>Wrap</h4>
-            <div class="price">$7.49</div>
+    </div>
+
+    <div class="content">
+
+        <div class="section-head">
+            <h2>Popular</h2>
+            <div class="badge">7 Items</div>
         </div>
 
-        <div class="card" data-name="pizza">
-            <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
-            <h4>Pizza</h4>
-            <div class="price">$12.99</div>
+        <div class="food-grid">
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
+                <h4>Burger</h4>
+                <div class="price">$8.99</div>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
+                <h4>Fries</h4>
+                <div class="price">$3.99</div>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
+                <h4>Wrap</h4>
+                <div class="price">$7.99</div>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/5787/5787100.png">
+                <h4>Pizza</h4>
+                <div class="price">$10.99</div>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
+                <h4>Cheese Burger</h4>
+                <div class="price">$9.99</div>
+            </div>
+
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/590/590685.png">
+                <h4>Banana</h4>
+                <div class="price">$2.99</div>
+            </div>
+
         </div>
 
-        <div class="card" data-name="chicken">
-            <img src="https://cdn-icons-png.flaticon.com/512/2515/2515183.png">
-            <h4>Chicken</h4>
-            <div class="price">$9.99</div>
-        </div>
+        <div class="bottom-nav">
 
-        <div class="card" data-name="drink">
-            <img src="https://cdn-icons-png.flaticon.com/512/3480/3480823.png">
-            <h4>Drink</h4>
-            <div class="price">$2.99</div>
+            <div class="nav-btn">
+                <i class="fas fa-house"></i>
+            </div>
+
+            <div class="search-btn">
+                <i class="fas fa-search"></i>
+                Search
+            </div>
+
+            <div class="nav-btn">
+                <i class="fas fa-user"></i>
+            </div>
+
         </div>
 
     </div>
 
 </div>
-
-<!-- BOTTOM NAVIGATION -->
-
-<div class="bottom-nav">
-
-    <div class="nav-btn">
-        <i class="fa-solid fa-house"></i>
-    </div>
-
-    <div class="search-box">
-        <i class="fa-solid fa-magnifying-glass"></i>
-
-        <input
-            type="text"
-            id="searchInput"
-            placeholder="Search food..."
-            onkeyup="searchFood()">
-    </div>
-
-    <div class="nav-btn">
-        <i class="fa-solid fa-user"></i>
-    </div>
-
-</div>
-
-<script>
-
-function searchFood(){
-
-    let input =
-    document.getElementById("searchInput")
-    .value
-    .toLowerCase();
-
-    let cards =
-    document.querySelectorAll(".card");
-
-    cards.forEach(card => {
-
-        let food =
-        card.dataset.name.toLowerCase();
-
-        if(food.includes(input)){
-            card.style.display = "block";
-        }else{
-            card.style.display = "none";
-        }
-
-    });
-
-}
-
-</script>
 
 </body>
 </html>
