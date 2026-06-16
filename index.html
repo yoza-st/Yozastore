@@ -440,11 +440,13 @@ body{
 
     <div class="food-grid" id="foodGrid">
 
-        <div class="card">
-            <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png">
-            <h4>Burger</h4>
-            <div class="price">$8.99</div>
-        </div>
+        <a href="product1.html" style="text-decoration: none; color: inherit;">
+            <div class="card">
+                <img src="https://cdn-icons-png.flaticon.com/512/3075/3075977.png" alt="Burger">
+                <h4>Burger</h4>
+                <div class="price">$8.99</div>
+            </div>
+        </a>
 
         <div class="card">
             <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png">
@@ -511,63 +513,7 @@ body{
             </button>
         </div>
 
-        <div class="cart-items">
-
-            <div class="cart-item">
-    
-                <div>
-                    <div>Burger</div>
-                    <small>$8.99</small>
-                </div>
-
-                <button class="delete-btn" onclick="deleteItem(this)">
-                    <i class="fas fa-trash"></i>
-                </button>
-
-            </div>
-
-            <div class="cart-item">
-    
-                <div>
-                    <div>Burger</div>
-                    <small>$8.99</small>
-                </div>
-
-                <button class="delete-btn" onclick="deleteItem(this)">
-                    <i class="fas fa-trash"></i>
-                </button>
-
-            </div>
-
-            <div class="cart-item">
-    
-                <div>
-                    <div>Burger</div>
-                    <small>$8.99</small>
-                </div>
-
-                <button class="delete-btn" onclick="deleteItem(this)">
-                    <i class="fas fa-trash"></i>
-                </button>
-
-            </div>
-
-        </div>
-
-            <div class="cart-items">
-
-                <div class="cart-item">
-        
-                    <div>
-                        <div>Burger</div>
-                        <small>$8.99</small>
-                    </div>
-
-                    <button class="delete-btn" onclick="deleteItem(this)">
-                        <i class="fas fa-trash"></i>
-                    </button>
-
-                </div>
+        <div class="cart-items" id="cartItems"></div>
 
         <button class="checkout-btn">
             Checkout
@@ -605,7 +551,57 @@ searchInput.addEventListener("keyup", function(){
 
 /* CART */
 
+function loadCart(){
+
+    const cartItems =
+    document.getElementById("cartItems");
+
+    let cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+    cartItems.innerHTML = "";
+
+    cart.forEach((item,index)=>{
+
+        cartItems.innerHTML += `
+            <div class="cart-item">
+
+                <div>
+                    <div>${item.name}</div>
+                    <small>${item.price}</small>
+                </div>
+
+                <button class="delete-btn"
+                    onclick="deleteItem(${index})">
+                    <i class="fas fa-trash"></i>
+                </button>
+
+            </div>
+        `;
+
+    });
+
+}
+
+function deleteItem(index){
+
+    let cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.splice(index,1);
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+    loadCart();
+
+}
+
 function openCart(){
+
+    loadCart();
 
     const popup =
     document.getElementById("cartPopup");
@@ -642,18 +638,8 @@ window.onclick = function(event){
 
 }
 
-function deleteItem(btn){
+loadCart();
 
-    if(confirm("Remove this item from cart?")){
-
-        const item =
-        btn.closest(".cart-item");
-
-        item.remove();
-
-    }
-
-}
 
 
 </script>

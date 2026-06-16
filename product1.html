@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Product Detail</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:#e8f0ed;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:20px;
+}
+
+/* Mobile First */
+.container{
+    width:100%;
+    max-width:420px;
+    background:#fff;
+    border-radius:40px;
+    overflow:hidden;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.top-bar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:25px;
+}
+
+.icon-btn{
+    width:40px;
+    height:40px;
+    border:none;
+    background:none;
+    font-size:22px;
+    cursor:pointer;
+}
+
+.cart{
+    position:relative;
+}
+
+.badge{
+    position:absolute;
+    top:-2px;
+    right:-2px;
+    width:18px;
+    height:18px;
+    border-radius:50%;
+    background:red;
+    color:white;
+    font-size:11px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.product-image{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:10px 20px;
+}
+
+.product-image img{
+    width:100%;
+    max-width:280px;
+    object-fit:contain;
+}
+
+.content{
+    padding:20px 30px 30px;
+}
+
+.product-title{
+    font-size:32px;
+    font-weight:700;
+    margin-bottom:15px;
+    color:#222;
+}
+
+.product-desc{
+    color:#888;
+    line-height:1.7;
+    margin-bottom:30px;
+}
+
+.payment-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.payment-header h3{
+    font-size:18px;
+}
+
+.detail-btn{
+    border:1px solid #0db14b;
+    color:#0db14b;
+    background:white;
+    border-radius:20px;
+    padding:7px 15px;
+    cursor:pointer;
+}
+
+.payment-row{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:15px;
+    color:#444;
+}
+
+.old-price{
+    text-decoration:line-through;
+    color:#aaa;
+    margin-right:10px;
+}
+
+.divider{
+    height:1px;
+    background:#eee;
+    margin:20px 0;
+}
+
+.bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+}
+
+.total-label{
+    color:#888;
+    font-size:14px;
+}
+
+.total-price{
+    font-size:36px;
+    font-weight:700;
+}
+
+.order-btn{
+    border:none;
+    background:#08b64c;
+    color:white;
+    font-size:18px;
+    padding:16px 30px;
+    border-radius:40px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    transition:.3s;
+}
+
+.order-btn:hover{
+    background:#05983f;
+}
+
+/* Tablet */
+@media (min-width:768px){
+
+    .container{
+        max-width:700px;
+    }
+
+    .product-image img{
+        max-width:350px;
+    }
+
+    .product-title{
+        font-size:40px;
+    }
+}
+
+/* Desktop */
+@media (min-width:992px){
+
+    body{
+        padding:40px;
+    }
+
+    .container{
+        max-width:1200px;
+        width:100%;
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        grid-template-areas:
+            "top top"
+            "image content";
+        gap:40px;
+        padding:40px;
+        border-radius:30px;
+    }
+
+    .top-bar{
+        grid-area:top;
+        padding:0;
+    }
+
+    .product-image{
+        grid-area:image;
+        padding:0;
+    }
+
+    .product-image img{
+        max-width:500px;
+        width:100%;
+    }
+
+    .content{
+        grid-area:content;
+        padding:0;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+    }
+
+    .product-title{
+        font-size:52px;
+    }
+
+    .product-desc{
+        font-size:18px;
+    }
+
+    .payment-header h3{
+        font-size:24px;
+    }
+
+    .payment-row{
+        font-size:18px;
+    }
+
+    .total-price{
+        font-size:50px;
+    }
+
+    .order-btn{
+        padding:18px 40px;
+        font-size:20px;
+    }
+}
+
+/* Small Mobile */
+@media(max-width:480px){
+
+    .container{
+        border-radius:25px;
+    }
+
+    .content{
+        padding:20px;
+    }
+
+    .product-title{
+        font-size:26px;
+    }
+
+    .total-price{
+        font-size:28px;
+    }
+
+    .order-btn{
+        padding:14px 22px;
+        font-size:16px;
+    }
+}
+
+.cart-popup{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.4);
+    display:none;
+    z-index:9999;
+}
+
+.cart-content{
+    position:absolute;
+    right:-350px;
+    top:0;
+    width:320px;
+    max-width:85%;
+    height:100%;
+    background:white;
+    padding:20px;
+    transition:.35s;
+    overflow-y:auto;
+}
+
+.cart-popup.active .cart-content{
+    right:0;
+}
+
+.cart-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.cart-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 0;
+    border-bottom:1px solid #eee;
+}
+
+.delete-btn{
+    border:none;
+    background:#ff5757;
+    color:white;
+    width:35px;
+    height:35px;
+    border-radius:8px;
+    cursor:pointer;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="top-bar">
+
+        <button class="icon-btn" onclick="history.back()">
+            <i class="fa-solid fa-arrow-left"></i>
+        </button>
+
+       <div class="cart">
+            <button class="icon-btn" onclick="openCart()">
+                <i class="fa-solid fa-bag-shopping"></i>
+            </button>
+            <span class="badge">0</span>
+       </div>
+
+    </div>
+
+    <div class="product-image">
+        <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=800"
+             alt="Food Product">
+    </div>
+
+    <div class="content">
+
+        <h1 class="product-title">
+            Mie Ayam Pedas Mampus
+        </h1>
+
+        <p class="product-desc">
+            Mie ayam bangka, pangsit, sawi, bawang goreng,
+            daun bawang, dengan ekstra sambal super pedas.
+            Nikmati sensasi pedas yang menggugah selera
+            dengan topping melimpah dan kuah yang lezat.
+        </p>
+
+        <div class="payment-header">
+            <h3>Detail Pembayaran</h3>
+            <button class="detail-btn">Lihat Detail</button>
+        </div>
+
+        <div class="payment-row">
+            <span>Harga</span>
+            <span>
+                <span class="old-price">Rp 25.000</span>
+                Rp 18.000
+            </span>
+        </div>
+
+        <div class="payment-row">
+            <span>Ongkir</span>
+            <span>Rp 9.000</span>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="bottom">
+
+            <div>
+                <div class="total-label">Total Bayar</div>
+                <div class="total-price">Rp 27.000</div>
+            </div>
+
+            <button class="order-btn" onclick="addToCart()">
+                <i class="fa-solid fa-circle-check"></i>
+                Add To Cart
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+updateCartCount();
+
+function addToCart(){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.push({
+        name:"Mie Ayam Pedas Mampus",
+        price:"Rp 18.000"
+    });
+
+    localStorage.setItem("cart", JSON.stringify(cart));
+
+    updateCartCount();
+
+    alert("Added to cart!");
+
+}
+
+function updateCartCount(){
+
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    document.querySelector(".badge").textContent = cart.length;
+
+}
+
+function loadCart(){
+
+    const cartItems =
+    document.getElementById("cartItems");
+
+    let cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+    cartItems.innerHTML = "";
+
+    cart.forEach((item,index)=>{
+
+        cartItems.innerHTML += `
+            <div class="cart-item">
+
+                <div>
+                    <div>${item.name}</div>
+                    <small>${item.price}</small>
+                </div>
+
+                <button class="delete-btn"
+                    onclick="deleteItem(${index})">
+                    <i class="fas fa-trash"></i>
+                </button>
+
+            </div>
+        `;
+    });
+
+}
+
+function deleteItem(index){
+
+    let cart =
+    JSON.parse(localStorage.getItem("cart")) || [];
+
+    cart.splice(index,1);
+
+    localStorage.setItem(
+        "cart",
+        JSON.stringify(cart)
+    );
+
+    updateCartCount();
+    loadCart();
+
+}
+
+function openCart(){
+
+    loadCart();
+
+    const popup =
+    document.getElementById("cartPopup");
+
+    popup.style.display = "block";
+
+    setTimeout(()=>{
+        popup.classList.add("active");
+    },10);
+
+}
+
+function closeCart(){
+
+    const popup =
+    document.getElementById("cartPopup");
+
+    popup.classList.remove("active");
+
+    setTimeout(()=>{
+        popup.style.display = "none";
+    },350);
+
+}
+
+window.onclick = function(event){
+
+    const popup =
+    document.getElementById("cartPopup");
+
+    if(event.target === popup){
+        closeCart();
+    }
+
+}
+
+</script>
+
+<div id="cartPopup" class="cart-popup">
+
+    <div class="cart-content">
+
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+
+            <button onclick="closeCart()">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="cart-items" id="cartItems"></div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
